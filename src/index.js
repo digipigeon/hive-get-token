@@ -20,6 +20,7 @@ async function login (email, password) {
 	const hkdf = srp.getPasswordAuthenticationKey(ChallengeParameters.USER_ID_FOR_SRP, password, ChallengeParameters.SRP_B, ChallengeParameters.SALT)
 	const dateNow = getNowString()
 	const signatureString = calculateSignature(hkdf, userPoolId, ChallengeParameters.USER_ID_FOR_SRP, ChallengeParameters.SECRET_BLOCK, dateNow)
+	console.log('Session', Session);
 	const { AuthenticationResult } = await httpRequest('AWSCognitoIdentityProviderService.RespondToAuthChallenge', {
 		ClientId,
 		ChallengeName,
@@ -48,8 +49,18 @@ async function httpRequest (action, body) {
 		},
 		data: JSON.stringify(body)
 	};
-	const {data} = await axios(request)
-	return data;
+	try {
+		const response = await axios(request)
+		if (response.status != 200 && response.data.message) {
+			throw new Error(response.data.message)
+		}
+		
+	} catch (err) {
+		if (err.status != 200 && err.data.message) {
+			throw new Error(err.data.message)
+		}
+	}
+	return response.data;
 }
 
 $(function() {
