@@ -54,7 +54,7 @@ async function httpRequest (action, body) {
 }
 
 $(function() {
-	$('submit').click(async (e) => {
+	$('#submit').click(async (e) => {
 		e.preventDefault();
 		try {
 			$('#output').html(await login($('#email').value(), $('#password').value()))
