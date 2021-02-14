@@ -1,8 +1,8 @@
 const userPoolId = 'SamNfoWtf'
 const ClientId = '3rl4i0ajrmtdm8sbre54p9dvd9'
 
-import { SRPClient, calculateSignature, getNowString} from './node_modules/amazon-user-pool-srp-client';
-import axios  from './node_modules/axios';
+import { SRPClient, calculateSignature, getNowString} from './amazon-user-pool-srp-client';
+import axios  from './axios';
 
 async function login (email, password) {
 	const srp = new SRPClient(userPoolId)
