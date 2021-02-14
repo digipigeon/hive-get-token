@@ -9,7 +9,7 @@ import { SRPClient, calculateSignature, getNowString} from 'amazon-user-pool-srp
 async function login (email, password) {
 	const srp = new SRPClient(userPoolId)
 	const SRP_A = srp.calculateA()
-	const { ChallengeName, ChallengeParameters, Session } = httpRequest('AWSCognitoIdentityProviderService.InitiateAuth', {
+	const { ChallengeName, ChallengeParameters, Session } = await httpRequest('AWSCognitoIdentityProviderService.InitiateAuth', {
 		ClientId,
 		AuthFlow: 'USER_SRP_AUTH',
 		AuthParameters: {
@@ -59,6 +59,7 @@ $(function() {
 		try {
 			$('#output').html(await login($('#email').val(), $('#password').val()))
 		} catch (err) {
+			console.error(error);
 			$('#output').html('ERROR\n' + err.message);
 		}
 	})
