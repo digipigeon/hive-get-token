@@ -1,6 +1,7 @@
  const path = require('path');
 
  module.exports = {
+   mode: 'production',
    entry: './src/index.js',
    output: {
      filename: 'main.js',
@@ -14,4 +15,10 @@
       },
     ],
   },
+  resolve: {
+    fallback: {
+	  crypto: path.resolve(__dirname, 'node_modules/crypto-browserify'),
+	  stream: path.resolve(__dirname, 'node_modules/stream-browserify')
+	}
+  }
  };
