@@ -46,10 +46,10 @@ async function httpRequest (action, body) {
 		  'Content-Type': 'application/x-amz-json-1.1',
 		  'X-Amz-Target': action
 		},
-		data: JSON.stringify(body),
-		transformResponse: (data) => data
+		data: JSON.stringify(body)
 	};
 	const {data} = axios(request)
+	console.log('Data:', data);
 	return data;
 }
 
