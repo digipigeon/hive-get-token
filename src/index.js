@@ -59,7 +59,7 @@ $(function() {
 		try {
 			$('#output').html(await login($('#email').val(), $('#password').val()))
 		} catch (err) {
-			console.error(error);
+			console.error(err);
 			$('#output').html('ERROR\n' + err.message);
 		}
 	})
