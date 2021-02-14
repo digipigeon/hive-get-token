@@ -48,8 +48,7 @@ async function httpRequest (action, body) {
 		},
 		data: JSON.stringify(body)
 	};
-	const data = axios(request)
-	console.log('Data:', data);
+	const {data} = await axios(request)
 	return data;
 }
 
