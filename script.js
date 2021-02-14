@@ -51,11 +51,12 @@ async function httpRequest (action, body) {
 }
 
 $(function() {
-	$('login').click(async () => {
+	$('login').click(async (e) => {
+		e.preventDefault();
 		try {
 			$('#output').html(await login($('#email').value(), $('#password').value()))
-		} catch (e) {
-			$('#output').html('ERROR\n' + e.message);
+		} catch (err) {
+			$('#output').html('ERROR\n' + err.message);
 		}
 	})
 })
