@@ -1,10 +1,8 @@
 const userPoolId = 'SamNfoWtf'
 const ClientId = '3rl4i0ajrmtdm8sbre54p9dvd9'
 
-import 'bootstrap';
-import 'bootstrap/dist/css/bootstrap.min.css';
-import axios from 'axios';
-import { SRPClient, calculateSignature, getNowString} from 'amazon-user-pool-srp-client';
+import { SRPClient, calculateSignature, getNowString} from './amazon-user-pool-srp-client';
+import axios  from './axios';
 
 async function login (email, password) {
 	const srp = new SRPClient(userPoolId)
@@ -13,9 +11,8 @@ async function login (email, password) {
 		ClientId,
 		AuthFlow: 'USER_SRP_AUTH',
 		AuthParameters: {
-			USERNAME: email,
-			SRP_A
-		}
+		USERNAME: email,
+		SRP_A
 	});
 	const hkdf = srp.getPasswordAuthenticationKey(ChallengeParameters.USER_ID_FOR_SRP, password, ChallengeParameters.SRP_B, ChallengeParameters.SALT)
 	const dateNow = getNowString()
