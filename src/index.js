@@ -56,7 +56,8 @@ async function httpRequest (action, body) {
 		}
 		return response.data;
 	} catch (err) {
-		if (err.status != 200 && err.data.message) {
+		console.error(err);
+		if (err.status != 200 && err.data && err.data.message) {
 			throw new Error(err.data.message)
 		}
 	}
