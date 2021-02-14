@@ -67,7 +67,7 @@ $(function() {
 	$('#submit').click(async (e) => {
 		e.preventDefault();
 		try {
-			$('#output').html(await login($('#email').val(), $('#password').val()))
+			$('#output').html(JSON.stringify(await login($('#email').val(), $('#password').val())))
 		} catch (err) {
 			console.error(err);
 			$('#output').html('ERROR\n' + err.message);
