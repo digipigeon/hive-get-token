@@ -54,13 +54,12 @@ async function httpRequest (action, body) {
 		if (response.status != 200 && response.data.message) {
 			throw new Error(response.data.message)
 		}
-		
+		return response.data;
 	} catch (err) {
 		if (err.status != 200 && err.data.message) {
 			throw new Error(err.data.message)
 		}
 	}
-	return response.data;
 }
 
 $(function() {
