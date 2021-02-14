@@ -49,3 +49,13 @@ async function httpRequest (action, body) {
 	const {data} = axios(request)
 	return data;
 }
+
+$(function() {
+	$('login').click(async () => {
+		try {
+			$('#output').html(await login($('#email').value(), $('#password').value()))
+		} catch (e) {
+			$('#output').html('ERROR\n' + e.message);
+		}
+	})
+})
