@@ -3,8 +3,8 @@ const ClientId = '3rl4i0ajrmtdm8sbre54p9dvd9'
 
 import 'bootstrap';
 import 'bootstrap/dist/css/bootstrap.min.css';
+import axios from 'axios';
 import { SRPClient, calculateSignature, getNowString} from 'amazon-user-pool-srp-client';
-import axios  from 'axios';
 
 async function login (email, password) {
 	const srp = new SRPClient(userPoolId)
