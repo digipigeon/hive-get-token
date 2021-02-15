@@ -7,23 +7,19 @@
     <meta name="author" content="Jonathan Hulme">
 
     <title>Hive Authentication Token Generator</title>
-  </head>
-
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">  </head>
   <body>
 
     <main role="main" class="container">
-
       <div>
         <h1>Hive Token Generator</h1>
         <p class="lead">This is an unofficial 3rd party site for generating Hive Authentication Tokens designed for use with Smart Things Handler.</p>
-		<h2>Disclamer</h2>
 		<p>
-			I offer no gurantees on the functionality of this service. I am not affiliated with Hive in any way.
-			This service will take your hive credentials and product JSON tokens for use with Smart things. The tokens pass through this site, nothing is stored.
-			You SHOULD be skeptical about using services like this. Take a moment to understand this, I can't tell you to trust me / my server to temporarly handle your credentials, you need to make that decision.
+			This page takes your Hive Username & Password and produces JSON Authentication Token. You will need to temporarly disable Two Factor Authentication from within the Hive App.
+			No information is send to any server apart from this one cognito-idp.eu-west-1.amazonaws.com which is where the previous example in the forum suggested.
 		</p>
 		
-		<p>You can find more information about why this was designed here: <a href='https://community.smartthings.com/t/release-hive-connect-v3-2c-british-gas-hive/103473'>https://community.smartthings.com/t/release-hive-connect-v3-2c-british-gas-hive/103473</a> I have taken the example provided and rolled it into a service which is easier to use for non-programmers.</p>
+		<p>You can find more information about why this was designed here: <a href='https://community.smartthings.com/t/release-hive-connect-v3-2c-british-gas-hive/103473'>https://community.smartthings.com/t/release-hive-connect-v3-2c-british-gas-hive/103473</a> I have taken the example provided and rolled it into a service which is easier to use for non-programmers. Using this will replace steps 10 - 20.</p>
 		<form class="form-signin">
 		  <div class="text-center mb-4">
 			<h1 class="h3 mb-3 font-weight-normal">Enter Hive Credentials</h1>
@@ -40,7 +36,7 @@
 		  </div>
 
 		  <button id="submit" class="btn btn-lg btn-primary btn-block" type="submit">Submit</button>
-		  <p class="mt-5 mb-3 text-muted text-center">&copy; All Rights Reserved</p>
+		  <p class="mt-5 mb-3 text-muted text-center">I offer no gurantees on the functionality of this service. I am not affiliated with Hive in any way.</p>
 		</form>
       </div>
 	  <div>
